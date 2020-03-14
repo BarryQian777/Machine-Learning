@@ -1,4 +1,4 @@
-#Logistic Regression(Classification)
+#Logistic Regression
 def sigmoid(z):
     g = 1/(1+exp(-z))
 def costfunction_log(X,y,theta):
