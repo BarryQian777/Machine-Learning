@@ -1,0 +1,14 @@
+#Logistic Regression(Classification)
+def sigmoid(z):
+    g = 1/(1+exp(-z))
+def costfunction_log(X,y,theta):
+    m=np.size(X,0)
+    J = (1/m)*np.sum((-y)*math.log(sigmoid(X.dot(theta)))-(1-y)*log(1-sigmoid(X.dot(theta))))
+    Gradient = (1/m)*(transpose(X).dot(sigmoid(X.dot(theta))-y))
+    return J,Gradient
+def gradientDescent(X,y,theta,alpha,iters):
+    m=np.size(X,0)
+    for i in range(1,iters):
+      theta=theta-alpha*(1/m)*(transpose(X).dot(sigmoid(X.dot(theta))-y))
+    return theta
+  
