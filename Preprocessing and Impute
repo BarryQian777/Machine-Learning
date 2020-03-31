@@ -1,0 +1,49 @@
+from sklearn.preprocessing import MinMaxScaler
+data=[[-1,2],[-0.5,6],[0,10],[1,18]]
+import pandas as pd
+pd.DataFrame(data)
+scaler=MinMaxScaler()
+scaler=scaler.fit(data)
+result=scaler.transform(data)
+result_=scaler.fit_transform(data)
+from sklearn.preprocessing import StandardScaler
+data=[[-1,2],[-0.5,6],[0,10],[1,18]]
+scaler=StandardScaler()
+scaler=scaler.fit(data)
+scaler.mean_
+scaler.var_
+x_std=scaler.transform(data)
+
+
+
+#缺失值
+from sklearn.impute import SimpleImputer
+Embarked=data.loc[:,"Embarked"].values.reshape(-1,1)
+imp_mode=SimpleImputer(strategy="most_frequent")
+data.loc[:,"Embarked"]=imp_mode.fit_transform(Embarked)
+
+#用pandas和Numpy进行填补
+import pandas as pd
+data=pd.read_csv()
+data.head()
+data.loc[:,"Age"]=data.loc[:,"Age"].fillna(data.loc[:,"Age"].median())
+#.fillna在DataFrame里直接进行填补
+data.dropna(axis=0,inplace=True)
+#.dropna删除所有缺失值的行或列
+
+#处理分类特征
+from sklearn.preprocessing import LabelEncoder
+y=data.iloc[:,-1]
+le=LabelEncoder()
+le=le.fit(y)
+label=le.transform(y)
+le.inverse_transform(label)
+
+#特征专用
+from sklearn.preprocessing import OrdinalEncoder
+data_.iloc[:,1:-1]=OrdinalEncoder().fit_transform(data_.iloc[:,1:-1])
+
+from sklearn.preprocessing import OneHotEncoder
+X=data.iloc[:,1:-1]
+enc=OneHotEncoder(categories='auto').fit(X)
+result=enc.transform(X).toarray() 
