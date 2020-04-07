@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr  7 00:36:52 2020
-
-@author: Xingy
-"""
-
 from sklearn.datasets import make_blobs
 X,y=make_blobs(n_samples=500,n_features=2,centers=4,random_state=1)
 import matplotlib.pyplot as plt
